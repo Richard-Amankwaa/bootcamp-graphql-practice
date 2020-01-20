@@ -6,13 +6,15 @@ exports.up = knex => knex.schema.createTable('authors', table => {
     .primary()
     .defaultTo(knex.raw('uuid_generate_v4()'))
 
-  table.string('firstName').notNullable()
+  table.string('firstName')
 
-  table.string('lastName').notNullable()
+  table.string('lastName')
 
   table.integer('age')
 
   table.string('email').unique()
+
+  table.string('password').notNullable()
 
   table.integer('numBooksPublished').defaultTo(0)
 
